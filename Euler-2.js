@@ -5,6 +5,7 @@
 */
 (function() {
 
+    // Brute force approach
     function firstApproach(limit) {
         var f1 = 1, f2 = 1, result = 0, sum = 0;
         while(result < limit) {
@@ -25,13 +26,14 @@
         return Math.floor(Math.pow(phi, n) * inverseSqrt5 + 0.5);
     }
 
+    // After 2 every 3rd number is even number in fibonacci series.
     function secondApproach(limit) {
-        // After 2 every 3rd number is even number in fibonacci series.
         var sum = 0, nth = 3, nthFib = 0; // 2 is 3rd fibonacci number in series.
         while(((nthFib = nthFibonacciNumber(nth)) < limit) && (nth += 3) && (sum += nthFib)){}
         return sum;
     }
-
+    
+    // Fn = Fn-1 + Fn-2 = Fn-2 + Fn-3 + Fn-3 +Fn-4 = (since Fn-1 = Fn-2 + Fn-3 and so on) Fn-3 + Fn-4 + Fn-3 +Fn-3 +Fn-4 = 3Fn-3 + 2Fn-4 = 3Fn-3 + Fn-4 + Fn-5 + Fn-6) = 4Fn-3 + Fn-6 (since Fn-4 + Fn-5 = Fn-3) 
     function thirdApproach(limit) {
         var fib = [2,0], i = 0, summed = 0;
         while (fib[i] < limit) {
