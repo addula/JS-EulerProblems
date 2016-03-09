@@ -34,7 +34,7 @@
 
     function thirdApproach(limit) {
         var fib = [2,0], i = 0, summed = 0;
-        while (fib[i] < 4000000) {
+        while (fib[i] < limit) {
             summed += fib[i];
             i = (i + 1) % 2;
             fib[i] = 4 * fib[(i + 1) % 2] + fib[i];
